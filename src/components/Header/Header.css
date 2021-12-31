@@ -1,11 +1,9 @@
 .header {    
     width: 100%;
     height: 50px;
-    /* background-image: linear-gradient(rgb(219, 216, 216), rgb(255, 255, 255)); */
     position: fixed; 
-    transition: all 0.2s ease-in-out;
-    /* background-clip: border-box ; */
-    
+    top: 0;
+    transition: all 0.2s ease-in-out;       
     z-index: 1;
 }
 
