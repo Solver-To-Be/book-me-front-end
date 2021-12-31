@@ -8,7 +8,7 @@ export default function Header() {
             <nav>
                 <a href='/'>Home</a>
                 <a href='/'>Cars</a>
-                <a href='/'>My Account</a>
+                <a href='/myAcount'>My Acount</a>
                 <a href='/'>Log Out</a>
             </nav>
           
