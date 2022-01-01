@@ -1,0 +1,40 @@
+.mainwhy{
+
+background-color:  #5856D6;
+/* background-attachment: fixed; */
+/* background-size: cover; */
+/* background-position: bottom */
+;
+/* background-blend-mode: darken; */
+color : white;
+padding:50px;
+font-family: 'Roboto', 'Helvetica Neue', Arial,Verdana,sans-serif;
+line-height: 1.5;
+
+
+}
+
+.mainwhy h2{
+    font-size: 36px;
+    font-weight: 700;
+}
+.first{
+    text-align : center
+}
+
+.sec{
+    margin-top: 30px;
+    display:flex;
+    flex-direction : row;
+    justify-content : space-evenly;
+    text-align : center
+}
+
+.sec p{
+
+    font-weight: 500;
+    font-size: 15px;
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    padding-bottom: 50px;
+}
+
