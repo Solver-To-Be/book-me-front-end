@@ -1,0 +1,25 @@
+.main{
+    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(../Img/pexels-rangga-aditya-armien-235222.jpg);
+    background-size: cover;
+/* background-attachment: fixed; */
+background-position:center;
+/* padding: 10 px 50 px; */
+}
+
+.main{
+    font-family: 'Roboto', 'Helvetica Neue', Arial,Verdana,sans-serif;
+
+    padding-top: 50px;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+
+}
+
+
+.para{    font-weight: 500;
+    font-size: 18px;
+  
+    font-family: Poppins, Helvetica, Arial, sans-serif;}

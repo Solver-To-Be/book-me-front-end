@@ -1,14 +1,16 @@
 import React from 'react'
 import Hero from './Hero'
-import './Homepage.css'
-
+import './css/Homepage.css'
+import Whyus from './Whyus'
+import BestOffers from './BestOffers'
+import Whoare from './Whoare'
 export default function Home() {
     return (
         <div>
             <Hero />
-            <section className='whyBookMe'>
-                <h1>Why Book Me</h1>
-            </section>
+           <Whyus />
+           <BestOffers/>
+           <Whoare/>
         </div>
     )
 }
