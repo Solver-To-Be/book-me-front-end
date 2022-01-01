@@ -3,7 +3,8 @@ import './Header.css'
 
 export default function Header() {
     return (
-        <div className='header'>            
+        <div className='header'> 
+        <div className='headerBackground'></div>           
             <img src="/home/ahmad/book-me-front-end/src/components/Header/book-me-logo.PNG" alt='logo' />
             <nav>
                 <a href='/'>Home</a>

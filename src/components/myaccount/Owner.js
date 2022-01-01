@@ -1,29 +1,58 @@
 import React, { useState, useEffect } from 'react'
 import LocationModel from './locationModel'
-
+import Card from './owner-car-card/card'
+import Updatecar from './owner-car-card/Updatecar'
 import axios from 'axios'
+import './button.css'
 
 
 export default function Owner() {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+   
+    const [showEdit, setShowEdit] = useState(false);
+    const [selectedCar, setSelectedCar] = useState({});   
     const [myCars, setMyCars] = useState([])
+    const [showAddCar, setShowAddCar ] = useState(false)
 
-  
+    const [interval, setIntervalfunc] = useState(0);
+    const [show, setShow] = useState(false);
+    const [location, setlocation] = useState(`https://maps.locationiq.com/v3/staticmap?key=pk.8a08bd062ba2953e6a5c30563ccd2ee1&cente[…]e=480x480&markers=icon:large-red-cutout%7C${randomcordinate(31879945, 32028358)},${randomcordinate(35847715, 36037897)}`);
+    function randomcordinate(min, max) { // min and max included
+        let cordenate = `${Math.floor(Math.random() * (max - min + 1) + min)}`;
+        return cordenate.substring(0, 2) + "." + cordenate.substring(2, cordenate.length);
+    }
+    const handleClick = () => {
+        setShow(!show)
+        if (show) {
+            clearInterval(interval);
+            setIntervalfunc(0);
+            return;
+        }
+        const newIntervalId = setInterval(() => {
+
+           let url = (`https://maps.locationiq.com/v3/staticmap?key=pk.8a08bd062ba2953e6a5c30563ccd2ee1&cente[…]e=480x480&markers=icon:large-red-cutout%7C${randomcordinate(31879945, 32028358)},${randomcordinate(35847715, 36037897)}`);
+            setlocation(url)
+        }, 10000);
+        setIntervalfunc(newIntervalId);
+    };
+
+    function handelShowEdit(car) {
+        setSelectedCar(car)
+        setShowEdit(true)
+    }
+
     useEffect(async () => {
         let config = {
             method: 'get',
-            url: 'http://localhost:3030/getmycar',
+            url: 'https://book-me401.herokuapp.com/getmycar',
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcndhbiIsImlhdCI6MTY0MDk1NDIzM30.btmG9xS88SwvLYvvgNq2Vpv-dmmZWfRbb_svMryIFv4'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQwOTY5MzcwfQ.-fsobjjqAhp0TQP0nigtUx9adzGkJjRQc3ZFRhsn1Gg'
             },
             data: ''
         };
         let res = await axios(config)
         setMyCars(res.data)
+
     }, [])
-    console.log(myCars, 'useeffect===================');
 
     async function handelSubmit(event) {
         event.preventDefault()
@@ -39,19 +68,22 @@ export default function Owner() {
 
         let config = {
             method: 'post',
-            url: 'http://localhost:3030/addcar',
+            url: 'https://book-me401.herokuapp.com/addcar',
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcndhbiIsImlhdCI6MTY0MDk1NDIzM30.btmG9xS88SwvLYvvgNq2Vpv-dmmZWfRbb_svMryIFv4',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQwOTY5MzcwfQ.-fsobjjqAhp0TQP0nigtUx9adzGkJjRQc3ZFRhsn1Gg',
                 'Content-Type': 'application/json'
             },
             data: object
         };
         let res = await axios(config)
         setMyCars([...myCars, res.data])
+        setShowAddCar(false)
     }
     console.log(myCars, 'after add --------------------');
     return (
         <div style={{ marginTop: '60px' }}>
+            {
+                showAddCar?
             <form onSubmit={handelSubmit}>
                 <label>Car Name</label>
                 <input placeholder='name' type='text' name='name' required />
@@ -70,23 +102,36 @@ export default function Owner() {
                 </select>
                 <label>Car Status</label>
                 <input placeholder='car Status' type='text' name='carStatus' required />
-                <button type='supmit'>Submit</button>
-            </form>
+                <button className='button-77' type='supmit'>Submit</button>
+            </form>: <button className='button-77' onClick={()=>setShowAddCar(true)}>Add New Car</button>
+            }
             <section>
-                {myCars.map(car => {
+                {myCars.map((car, idx) => {
                     return (
-                        <>
-                            <h3>{car.name}</h3>
-                            <button onClick={()=>handleShow()}>get location</button>
-                        </>
+                        <Card key={idx}
+                            handleShow={handleClick}
+                            car={car}
+                            handelShowEdit={handelShowEdit}
+                            myCars={myCars}
+                            setMyCars={setMyCars}
+
+                        />
+
                     )
                 })}
             </section>
-                    <LocationModel  
-                    show = {show}                 
-                    handleClose={handleClose}
-                    handleShow={handleShow} />
-            
+            <LocationModel
+                show={show}
+                handleClick={handleClick}
+                setShow = {setShow}
+                location={location}
+                 />
+            <Updatecar
+                selectedCar={selectedCar}
+                setShowEdit={setShowEdit}
+                showEdit={showEdit}
+                setMyCars={setMyCars}
+                myCars={myCars} />
         </div>
     )
 }
