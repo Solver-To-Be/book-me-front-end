@@ -1,19 +1,18 @@
 import React from 'react'
+import { Col, Row } from 'react-bootstrap'
 import './css/Whoare.css'
 export default function Whoare() {
     return (
         <>
-            <div className='main'>
-                <div className='first'>
-                    Who Are We
-                </div>
-                <div className='sec'>
-                    <div className='para'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
+            <div className='maine'>
+                <Row>
+                    <Col><Row><h1 className='tet'>Vision </h1></Row> <Row> <div className='meme'>We will be a growth-oriented car rental company by efficiently serving value-conscious customers for all of their car rental occasions.</div>
 
-</div>
-                    <div></div>
-                    <div></div>
-                </div>
+                    </Row></Col>
+                    <Col><Row><h1 className='tet'>Mission </h1></Row> <Row> <div className='meme'>We will consistently deliver a quality product, friendly service and great value that make customers confident that Budget is their best car rental choice.</div>
+
+                    </Row></Col>
+                </Row>
             </div>
         </>
     )
