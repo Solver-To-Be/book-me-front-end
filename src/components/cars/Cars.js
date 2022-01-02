@@ -8,7 +8,17 @@ import './cars.css'
 import './searchInput.scss'
 
 export default function Cars() {
-
+    const obj = {
+        "id": 1,
+        "username": "samah",
+        "password": "123",
+        "phone": "079111111",
+        "Adress": "Amman",
+        "status": "null",
+        "role": "owner",
+        "createdAt": "2021-12-01T08:32:42.588Z",
+        "updatedAt": "2021-12-01T08:34:44.095Z"
+    }
     const [searchCars, setSearchCars] = useState([])
     const [showRentModal, setShowRentModal] = useState(false)
     const [rentedCar, setRentedCar] = useState({})
