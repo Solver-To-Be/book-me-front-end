@@ -2,10 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import './card.scss'
 
-
-
-
-
 class CardHeader extends React.Component {
     render() {
         const { image } = this.props;
@@ -19,7 +15,6 @@ class CardHeader extends React.Component {
         )
     }
 }
-
 class Button extends React.Component {
 
      deleteCar(id) {
@@ -27,9 +22,9 @@ class Button extends React.Component {
         var data = '';    
         var config = {
             method: 'delete',
-            url: `https://book-me401.herokuapp.com/deletecar/${id}`,
+            url: `https://lkom-k.herokuapp.com//deletecar/${id}`,
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQwOTY5MzcwfQ.-fsobjjqAhp0TQP0nigtUx9adzGkJjRQc3ZFRhsn1Gg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTM5NzYxfQ.8AkDl39_I_r5C36RyVz76UAjGJ5we3LpD0Gf2twc4kg'
             },
             data: data
         };
@@ -60,9 +55,7 @@ class CardBody extends React.Component {
     render() {
         return (
             <div className="card-body">
-
                 <h2>{this.props.car.name}</h2>
-
                 <p className="body-content">{this.props.car.carType} {this.props.car.model}</p>
 
                 <Button

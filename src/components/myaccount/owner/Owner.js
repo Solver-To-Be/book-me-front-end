@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import LocationModel from './locationModel'
-import Card from './owner-car-card/card'
-import Updatecar from './owner-car-card/Updatecar'
+import Card from './card'
+import Updatecar from './Updatecar'
 import axios from 'axios'
-import './button.css'
+import '../button.css'
 
 
 export default function Owner() {
