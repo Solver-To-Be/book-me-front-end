@@ -23,8 +23,7 @@ class Button extends React.Component {
     render() {
         return (
             <><button className="button button-primary" onClick={()=>{this.props.setShowRentModal(true);this.props.setRentedCar(this.props.searchCars)}}>
-                    Rent
-                </button>
+                    Rent         </button>
                 <button className="button button-primary" onClick={()=>{this.props.setShowCarOwnerModal(true);
                 this.props.getCarOwner(this.props.searchCars.ownerId)}}>Owner Detail</button>
             </>
@@ -39,7 +38,7 @@ class CardBody extends React.Component {
 
                 <p className="body-content">{this.props.searchCars.name}</p>
                 <p className="body-content">{this.props.searchCars.carType} {this.props.searchCars.model}</p>
-                <p className="body-content">owner : {this.props.searchCars.ownerId} </p>
+                <p className="body-content">Rent cost : {this.props.searchCars.rentCost} </p>
 
                 <Button
                     setShowRentModal={this.props.setShowRentModal}
@@ -47,6 +46,7 @@ class CardBody extends React.Component {
                     searchCars={this.props.searchCars}
                     setShowCarOwnerModal={this.props.setShowCarOwnerModal}
                     getCarOwner={this.props.getCarOwner}
+                   
                 />
             </div>
         )
@@ -64,6 +64,7 @@ export default function Carscard(props) {
                 setRentedCar={props.setRentedCar}
                 setShowCarOwnerModal={props.setShowCarOwnerModal}
                 getCarOwner={props.getCarOwner}
+               
 
             />
         </article>

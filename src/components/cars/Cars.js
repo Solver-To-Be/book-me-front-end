@@ -14,14 +14,13 @@ export default function Cars() {
     const [rentedCar, setRentedCar] = useState({})
     const [showCarOwnerModal, setShowCarOwnerModal] = useState(false)
     const [carOwner, setCarOwner] = useState({})
+    
 
     async function getCarOwner(id) {
-        if (!carOwner) {
-
-            const res = await axios.get(`https://book-me401.herokuapp.com/getallcar/${id}`)
+        
+            const res = await axios.get(`https://book-me401.herokuapp.com/getuser/${id}`)
             setCarOwner(res.data)
-        }
-
+        
     }
 
     useEffect(async () => {
@@ -41,7 +40,9 @@ export default function Cars() {
     return (
         <div className='Cars'>
             <section className='searchPageHero'>
-             <Search />
+             <Search 
+             searchCars={searchCars} 
+             setSearchCars={setSearchCars} />
             </section>
             {searchCars.map((car, idx) => {
                 return (                    
@@ -52,6 +53,7 @@ export default function Cars() {
                         setRentedCar={setRentedCar}
                         setShowCarOwnerModal={setShowCarOwnerModal}
                         getCarOwner={getCarOwner}
+                        
                     />
                 )
             })}
@@ -63,7 +65,8 @@ export default function Cars() {
             <Ownermodal
                 showCarOwnerModal={showCarOwnerModal}
                 setShowCarOwnerModal={setShowCarOwnerModal}
-                carOwner={carOwner} />
+                carOwner={carOwner}
+                 />
 
         </div>
     )
