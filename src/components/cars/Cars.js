@@ -8,27 +8,17 @@ import './cars.css'
 import './searchInput.scss'
 
 export default function Cars() {
-    const obj = {
-        "id": 1,
-        "username": "samah",
-        "password": "123",
-        "phone": "079111111",
-        "Adress": "Amman",
-        "status": "null",
-        "role": "owner",
-        "createdAt": "2021-12-01T08:32:42.588Z",
-        "updatedAt": "2021-12-01T08:34:44.095Z"
-    }
+
     const [searchCars, setSearchCars] = useState([])
     const [showRentModal, setShowRentModal] = useState(false)
     const [rentedCar, setRentedCar] = useState({})
     const [showCarOwnerModal, setShowCarOwnerModal] = useState(false)
-    const [carOwner, setCarOwner] = useState(obj)
+    const [carOwner, setCarOwner] = useState({})
 
     async function getCarOwner(id) {
         if (!carOwner) {
 
-            const res = await axios.get(`https://lkom-k.herokuapp.com/getallcar/${id}`)
+            const res = await axios.get(`https://book-me401.herokuapp.com/getallcar/${id}`)
             setCarOwner(res.data)
         }
 
@@ -37,9 +27,9 @@ export default function Cars() {
     useEffect(async () => {
         let config = {
             method: 'get',
-            url: 'https://lkom-k.herokuapp.com/getallcar',
+            url: 'https://book-me401.herokuapp.com/getallcar',
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTM5NzYxfQ.8AkDl39_I_r5C36RyVz76UAjGJ5we3LpD0Gf2twc4kg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE'
             },
             data: ''
         };

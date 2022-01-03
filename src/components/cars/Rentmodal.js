@@ -6,7 +6,7 @@ import io from 'socket.io-client'
 
 export default function Updatecar(props) {
 
-    // const host = "https://lkom-k.herokuapp.com/";
+    // const host = "https://book-me401.herokuapp.com";
     // const ownersConnection = io.connect(`${host}/owners`);
     
 
