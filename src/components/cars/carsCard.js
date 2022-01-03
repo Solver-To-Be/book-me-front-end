@@ -1,7 +1,7 @@
 import React from 'react'
+import { Button } from 'react-bootstrap';
 // import axios from 'axios'
 import '../myaccount/owner/card.scss'
-
 class CardHeader extends React.Component {
     render() {
         const { image } = this.props;
@@ -16,16 +16,18 @@ class CardHeader extends React.Component {
     }
 }
 
-class Button extends React.Component {
+class Buttoon extends React.Component {
 
 
 
     render() {
         return (
-            <><button className="button button-primary" onClick={()=>{this.props.setShowRentModal(true);this.props.setRentedCar(this.props.searchCars)}}>
-                    Rent         </button>
-                <button className="button button-primary" onClick={()=>{this.props.setShowCarOwnerModal(true);
-                this.props.getCarOwner(this.props.searchCars.ownerId)}}>Owner Detail</button>
+            <><Button className="button button-primary" onClick={()=>{this.props.setShowRentModal(true);this.props.setRentedCar(this.props.searchCars)}}>
+                    Book It       </Button> {'    '}
+
+                    <Button className="button button-primary" variant="info"  onClick={()=>{this.props.setShowCarOwnerModal(true);
+                this.props.getCarOwner(this.props.searchCars.ownerId)}}>Owner Detail</Button>{' '}
+                
             </>
         )
     }
@@ -40,7 +42,7 @@ class CardBody extends React.Component {
                 <p className="body-content">{this.props.searchCars.carType} {this.props.searchCars.model}</p>
                 <p className="body-content">Rent cost : {this.props.searchCars.rentCost} </p>
 
-                <Button
+                <Buttoon
                     setShowRentModal={this.props.setShowRentModal}
                     setRentedCar={this.props.setRentedCar}
                     searchCars={this.props.searchCars}

@@ -4,13 +4,13 @@ import Button from 'react-bootstrap/Button'
 
 
 export default function LocationModel(props) {
-      
+
 
     return (
         <>
             <Modal
                 show={props.show}
-                onHide={()=>{props.setShow(!props.show);props.handleClick()}}
+                onHide={() => { props.setShow(!props.show); props.handleClick() }}
                 backdrop="static"
                 keyboard={false}
             >
@@ -18,10 +18,13 @@ export default function LocationModel(props) {
                     <Modal.Title>Modal title</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <img src={props.location} alt='location not found' />
+                    <img style={{
+                        width: "100%",
+                        height: "auto"
+                    }} src={props.location} alt='location not found' />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={() => {props.setShow(!props.show);props.handleClick()}}>
+                    <Button variant="secondary" onClick={() => { props.setShow(!props.show); props.handleClick() }}>
                         Close
                     </Button>
                 </Modal.Footer>

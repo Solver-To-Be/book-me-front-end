@@ -17,12 +17,14 @@ Luxury Cars at low-cost, starts $75 / day
 from over 100 premium locations</p>
 <h2>What Are You Waiting For !</h2>
 
-<Button className="btbt" variant="primary" size="lg" active>
-    Book Now
-  </Button>{' '}
 
+<a href='/cars'><Button className="btbt" variant="primary" size="lg" active>
+    Book Now
+  </Button>{' '} </a>
 
     </div>    
     </>
     )
 }
+
+
