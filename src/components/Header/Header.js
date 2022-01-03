@@ -7,7 +7,7 @@ export default function Header() {
      <h1> BookMe</h1>
             <nav>
                 <a href='/'>Home</a>
-                <a href='/'>Cars</a>
+                <a href='/cars'>Cars</a>
                 <a href='/myAcount'>My Acount</a>
                 <a href='/'>Log Out</a>
             </nav>

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import LocationModel from './locationModel'
-import Card from './owner-car-card/card'
-import Updatecar from './owner-car-card/Updatecar'
+import Card from './card'
+import Updatecar from './Updatecar'
 import axios from 'axios'
-import './button.css'
+import '../button.css'
 
 
 export default function Owner() {
@@ -45,7 +45,7 @@ export default function Owner() {
             method: 'get',
             url: 'https://book-me401.herokuapp.com/getmycar',
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQwOTY5MzcwfQ.-fsobjjqAhp0TQP0nigtUx9adzGkJjRQc3ZFRhsn1Gg'
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE'
             },
             data: ''
         };

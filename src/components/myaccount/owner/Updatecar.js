@@ -19,7 +19,7 @@ export default function Updatecar(props) {
             method: 'put',
             url: `https://book-me401.herokuapp.com/updatecar/${props.selectedCar.id}`,
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQwOTY5MzcwfQ.-fsobjjqAhp0TQP0nigtUx9adzGkJjRQc3ZFRhsn1Gg',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE',
                 'Content-Type': 'application/json'
             },
             data: object
