@@ -6,7 +6,9 @@ import BestOffers from './BestOffers'
 import Whoare from './Whoare'
 import Cur from './Cur'
 import Footer from '../Footer/Footer'
+
 export default function Home() {
+    
     return (
         <div>
             <Hero />

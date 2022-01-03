@@ -6,15 +6,17 @@ export default function Card(props) {
         <div>
              <MDBCard className='h-100'>
           <MDBCardImage
-            src={props.img}
+            src={props.card.photo}
             alt='Hollywood Sign on The Hill'
             position='top'
             height='300px'          />
           <MDBCardBody>
-            <MDBCardTitle>Ford</MDBCardTitle>
+            <MDBCardTitle>{props.card.name}</MDBCardTitle>
             <MDBCardText>
-              This is a longer card with supporting text below as a natural lead-in to additional content.
-              This content is a little bit longer.
+            <h6>{props.card.model}</h6>
+             <h3> {props.card.carType}</h3>
+           
+             
             </MDBCardText>
           </MDBCardBody>
         </MDBCard> 
