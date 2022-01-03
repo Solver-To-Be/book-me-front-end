@@ -16,7 +16,7 @@ export default function Ownermodal(props) {
                 </Modal.Header>
                 <Modal.Body>
                    <li> Phone : {props.carOwner.phone} </li>
-                   <li> Adress : {props.carOwner.Amman} </li>
+                   <li> Adress : {props.carOwner.Adress} </li>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={() => props.setShowCarOwnerModal(!props.showCarOwnerModal)}>
