@@ -2,16 +2,56 @@ import React, { useState, useEffect } from 'react'
 import LocationModel from './locationModel'
 import Card from './card'
 import Updatecar from './Updatecar'
+import io from 'socket.io-client'
+import Notefication from './Notefication'
 import axios from 'axios'
 import '../button.css'
 
 
 export default function Owner() {
-   
+    const host = "https://book-me401.herokuapp.com";
+    const ownerConnection = io.connect(`${host}/owners`);
+    const customConnection = io.connect(`${host}/customs`);
+    const [payLoadArr, setPayLoadArr] = useState([])
+    let comName = 'ahmad'
+    useEffect(() => {
+        ownerConnection.emit("get-all", comName);
+        ownerConnection.on("all", (payload) => {
+            if (payload.ownerName === comName) {
+                console.log(`there is a customer need a car that has id:${payload.carid} has name : ${payload.carName} from ${payload.startDate} to ${payload.endDate}`);
+            }
+            setPayLoadArr([payload])
+        });
+    }, [])
+    ownerConnection.on("rent-req", (payload) => {
+        console.log(payload, '==========================');
+        if (payload.ownerName === comName) {
+            console.log(
+                `there is a customer need a car that has id:${payload.carid} has name${payload.carName} from ${payload.startDate} to ${payload.endDate} `
+            );
+            setPayLoadArr([...payLoadArr, payload])
+        }
+    });
+
+    function renResponse(payload, string) {
+        console.log("response  the rent req ");
+        if (string === 'ok') {
+            const filterPayLoad = payLoadArr.filter(car => car.carid !== payload.carid)
+            setPayLoadArr(filterPayLoad)
+        }
+        let arg = { status: string, carid: payload.carid, name: payload.name, driver:payload.driver };
+        customConnection.emit("rental-res", arg);
+    }
+
+
+    // ========================================
+    // ========================================
+    // ========================================
+
     const [showEdit, setShowEdit] = useState(false);
-    const [selectedCar, setSelectedCar] = useState({});   
+    const [selectedCar, setSelectedCar] = useState({});
     const [myCars, setMyCars] = useState([])
-    const [showAddCar, setShowAddCar ] = useState(false)
+    const [showAddCar, setShowAddCar] = useState(false)
 
     const [interval, setIntervalfunc] = useState(0);
     const [show, setShow] = useState(false);
@@ -29,7 +69,7 @@ export default function Owner() {
         }
         const newIntervalId = setInterval(() => {
 
-           let url = (`https://maps.locationiq.com/v3/staticmap?key=pk.8a08bd062ba2953e6a5c30563ccd2ee1&cente[…]e=480x480&markers=icon:large-red-cutout%7C${randomcordinate(31879945, 32028358)},${randomcordinate(35847715, 36037897)}`);
+            let url = (`https://maps.locationiq.com/v3/staticmap?key=pk.8a08bd062ba2953e6a5c30563ccd2ee1&cente[…]e=480x480&markers=icon:large-red-cutout%7C${randomcordinate(31879945, 32028358)},${randomcordinate(35847715, 36037897)}`);
             setlocation(url)
         }, 10000);
         setIntervalfunc(newIntervalId);
@@ -83,27 +123,27 @@ export default function Owner() {
     return (
         <div style={{ marginTop: '60px' }}>
             {
-                showAddCar?
-            <form onSubmit={handelSubmit}>
-                <label>Car Name</label>
-                <input placeholder='name' type='text' name='name' required />
-                <label>Car Type</label>
-                <input placeholder='car Type' type='text' name='carType' required />
-                <label>Model</label>
-                <input placeholder='model' type='text' name='model' required />
-                <label>Photo</label>
-                <input placeholder='photo' type='text' name='photo' required />
-                <label>Rent Cost</label>
-                <input placeholder='rent Cost' type='number' name='rentCost' required />
-                <select name='select' required >
-                    <option value='/hour' >Hour</option>
-                    <option value='/day'>Day</option>
-                    <option value='/month' >Month</option>
-                </select>
-                <label>Car Status</label>
-                <input placeholder='car Status' type='text' name='carStatus' required />
-                <button className='button-77' type='supmit'>Submit</button>
-            </form>: <button className='button-77' onClick={()=>setShowAddCar(true)}>Add New Car</button>
+                showAddCar ?
+                    <form onSubmit={handelSubmit}>
+                        <label>Car Name</label>
+                        <input placeholder='name' type='text' name='name' required />
+                        <label>Car Type</label>
+                        <input placeholder='car Type' type='text' name='carType' required />
+                        <label>Model</label>
+                        <input placeholder='model' type='text' name='model' required />
+                        <label>Photo</label>
+                        <input placeholder='photo' type='text' name='photo' required />
+                        <label>Rent Cost</label>
+                        <input placeholder='rent Cost' type='number' name='rentCost' required />
+                        <select name='select' required >
+                            <option value='/hour' >Hour</option>
+                            <option value='/day'>Day</option>
+                            <option value='/month' >Month</option>
+                        </select>
+                        <label>Car Status</label>
+                        <input placeholder='car Status' type='text' name='carStatus' required />
+                        <button className='button-77' type='supmit'>Submit</button>
+                    </form> : <button className='button-77' onClick={() => setShowAddCar(true)}>Add New Car</button>
             }
             <section>
                 {myCars.map((car, idx) => {
@@ -123,15 +163,21 @@ export default function Owner() {
             <LocationModel
                 show={show}
                 handleClick={handleClick}
-                setShow = {setShow}
+                setShow={setShow}
                 location={location}
-                 />
+            />
             <Updatecar
                 selectedCar={selectedCar}
                 setShowEdit={setShowEdit}
                 showEdit={showEdit}
                 setMyCars={setMyCars}
                 myCars={myCars} />
+            <Notefication
+                payLoadArr={payLoadArr}
+                setPayLoadArr={setPayLoadArr}
+                renResponse={renResponse}
+            />
+
         </div>
     )
 }
