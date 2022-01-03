@@ -9,7 +9,7 @@ export default function Card(props) {
             src={props.card.photo}
             alt='Hollywood Sign on The Hill'
             position='top'
-            height='300px'          />
+            height='250px'          />
           <MDBCardBody>
             <MDBCardTitle>{props.card.name}</MDBCardTitle>
             <MDBCardText>
