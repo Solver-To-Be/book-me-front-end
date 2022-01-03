@@ -25,7 +25,7 @@ class Footer extends Component {
                 
               
                
-                  <a href='https://github.com/api-pirates-team'><FaGithub className="icons"/></a>
+                  <a href='https://github.com/Solver-To-Be'><FaGithub className="icons"/></a>
               
                
                   <FaWhatsapp className="icons" />
