@@ -6,14 +6,29 @@ import axios from 'axios'
 export default function Updatecar(props) {
     async function handelSubmit(event) {
         event.preventDefault()
-        const object = {
-            "name": event.target.name.value,
-            "carType": event.target.carType.value,
-            "model": event.target.model.value,
-            "photo": event.target.photo.value,
-            "rentCost": `${event.target.rentCost.value}${event.target.price.value}`,
-            "carStatus": event.target.carStatus.value,
-            "status": event.target.select.value
+        let object
+        if(event.target.select.value === 'avaliable'){
+             object = {
+                "name": event.target.name.value,
+                "carType": event.target.carType.value,
+                "model": event.target.model.value,
+                "photo": event.target.photo.value,
+                "rentCost": `${event.target.rentCost.value}${event.target.price.value}`,
+                "carStatus": event.target.carStatus.value,
+                "status": event.target.select.value,
+                "takenId" : 'null'               
+            }
+        }else{
+            object = {
+               "name": event.target.name.value,
+               "carType": event.target.carType.value,
+               "model": event.target.model.value,
+               "photo": event.target.photo.value,
+               "rentCost": `${event.target.rentCost.value}${event.target.price.value}`,
+               "carStatus": event.target.carStatus.value,
+               "status": event.target.select.value,
+               "takenId" : props.selectedCar.takenId
+           }
         }
         let config = {
             method: 'put',
@@ -69,10 +84,17 @@ export default function Updatecar(props) {
                         </select>
                         <label>Car Status</label>
                         <input defaultValue={props.selectedCar.carStatus} type='text' name='carStatus' />
+                        {props.selectedCar.takenId ==='null'?
                         <select name='select'  >
                             <option value='avaliable' >Avaliable</option>
                             <option value='taken'>Taken</option>
+                        </select>:
+                        <select name='select'  >
+                            <option value='taken'>Taken</option>
+                            <option value='avaliable' >Avaliable</option>
                         </select>
+
+                        }
                         <button type='supmit'>Submit</button>
                     </form>
                 </Modal.Body>

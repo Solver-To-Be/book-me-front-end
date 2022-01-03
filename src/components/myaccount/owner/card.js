@@ -35,7 +35,7 @@ class Button extends React.Component {
     render() {
         return (
             <>
-                {this.props.car.status === 'avaliable' &&
+                {this.props.car.status === 'taken' &&
                   <button onClick={this.props.handleShow} className="button button-primary">
                   Get Location
               </button>  
@@ -57,6 +57,7 @@ class CardBody extends React.Component {
             <div className="card-body">
                 <h2>{this.props.car.name}</h2>
                 <p className="body-content">{this.props.car.carType} {this.props.car.model}</p>
+                <p id={this.props.car.id}></p>
 
                 <Button
                     handleShow={this.props.handleShow}

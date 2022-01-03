@@ -6,23 +6,23 @@ import io from 'socket.io-client'
 
 export default function Updatecar(props) {
 
-    // const host = "https://book-me401.herokuapp.com";
-    // const ownersConnection = io.connect(`${host}/owners`);
+    const host = "https://book-me401.herokuapp.com";
+    const ownersConnection = io.connect(`${host}/owners`);
+    
     
 
     async function handelSubmit(event) {
         event.preventDefault()       
         const object = {
+            "name" : 'marwan',
             "startDate": event.target.From.value,
             "endDate": event.target.To.value,
             "driver": event.target.select.value,
             "carid": props.rentedCar.id,
-            "takenId": 6
         }
-        // ownersConnection.emit("req-fromCus", object);
-        // console.log("wait the accepted from the owner");
-        
-
+        ownersConnection.emit("req-fromCus", object);
+        console.log("wait the accepted from the owner");
+        props.setShowRentModal(false)
     }
 
     function handleClose() {
