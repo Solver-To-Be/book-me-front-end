@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer'
 import Home from './components/HomePage/Home'
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Owner from './components/myaccount/owner/Owner'
@@ -25,6 +26,7 @@ export default class App extends React.Component {
             </Route>
           </Switch>
         </BrowserRouter>
+        <Footer />
       </div>
     );
   }
