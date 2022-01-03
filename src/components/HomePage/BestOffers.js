@@ -1,104 +1,58 @@
 import React from 'react';
-import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import "./css/BestOffers.css"
+import { Card, Button, Row, Container, Col } from 'react-bootstrap';
+
 export default function BestOffers() {
   return (
-      <>
-      <div className='cards'>
-    <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
-      <MDBCol>
-        <MDBCard className='h-100'>
-          <MDBCardImage
-            src='https://media.ed.edmunds-media.com/ford/fusion/2014/oem/2014_ford_fusion_sedan_se_fq_oem_1_1600.jpg'
-            alt='Hollywood Sign on The Hill'
-            position='top'
-            height='300px'          />
-          <MDBCardBody>
-            <MDBCardTitle>Ford</MDBCardTitle>
-            <MDBCardText>
-              This is a longer card with supporting text below as a natural lead-in to additional content.
-              This content is a little bit longer.
-            </MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-      <MDBCol>
-        <MDBCard className='h-100'>
-          <MDBCardImage
-            src='https://images.netdirector.co.uk/gforces-auto/image/upload/q_auto,c_crop,f_auto,fl_lossy,x_816,y_658,w_1794,h_1345/w_1568,h_1176,c_fill/auto-client/20075e74baa11653b98b06ffd685b2cd/a0183543.jpg'
-            alt='...'
-            position='top'
-            height='300px'
-          />
-          <MDBCardBody>
-            <MDBCardTitle>BMW</MDBCardTitle>
-            <MDBCardText>This is a short card.</MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-      <MDBCol>
-        <MDBCard className='h-100'>
-          <MDBCardImage
-            src='https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-mercedes-benz-a220-4matic-mmp-1-1638557009.jpg'
-            alt='...'
-            position='top'
-            height='300px'
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Mercides</MDBCardTitle>
-            <MDBCardText>
-              This is a longer card with supporting text below as a natural lead-in to additional content.
-            </MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-      <MDBCol>
-        <MDBCard className='h-100'>
-          <MDBCardImage
-            src='https://besthqwallpapers.com/Uploads/8-7-2018/58693/thumb2-toyota-camry-2019-4k-exterior-front-view.jpg'
-            alt='...'
-            position='top'
-            height='300px'
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Toyota</MDBCardTitle>
-            <MDBCardText>
-              This is a longer card with supporting text below as a natural lead-in to additional content.
-              This content is a little bit longer.
-            </MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-      <MDBCol>
-        <MDBCard className='h-100'>
-          <MDBCardImage
-            src='https://wallpaperaccess.com/full/2368480.jpg'
-            alt='...'
-            position='top'
-            height='300px'
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Kia</MDBCardTitle>
-            <MDBCardText>This is a short card.</MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-      <MDBCol>
-        <MDBCard className='h-100'>
-          <MDBCardImage
-            src='https://wallpapercave.com/wp/wp4231828.jpg'
-            alt='...'
-            position='top'
-            height='300px'
-          />
-          <MDBCardBody>
-            <MDBCardTitle>Hundai</MDBCardTitle>
-            <MDBCardText>This is a short card.</MDBCardText>
-          </MDBCardBody>
-        </MDBCard>
-      </MDBCol>
-    </MDBRow>
-    </div>
+    <>
+     
+      <div className="best">Articles & Tips</div>
+      <div className='artic'>Explore some of the best tips from around the world</div>
+      <Container className='cont'>
+        <Row>
+          <Col><Card className='cert' style={{ width: '22rem',height:'32rem' }}>
+            <Card.Img className='certimg' variant="top" src="https://afar-production.imgix.net/uploads/images/afar_post_headers/images/qHFGW5ejnp/original_shutterstock_225268627.jpg?auto=compress,format&fit=crop&crop=top&lossless=true&w=1080&dpr=1" />
+            <Card.Body>
+
+              <Card.Text>
+                <h5 className='date'> Dec 7, 2020</h5>
+                <h3 className='title'>10 Things You Should Do Every Time You Rent a Car</h3>
+
+                Tips and tricks to earn bonus rewards, save money, and insure your rental car on your next road trip ...
+              </Card.Text>
+              <Button variant="primary" href='https://www.afar.com/magazine/essential-car-rental-tips'>Read More &gt; </Button>
+            </Card.Body>
+          </Card></Col>
+          <Col><Card className='cert' style={{ width: '22rem',height:'32rem' }}>
+            <Card.Img className='certimg' variant="top" src="https://cdn.travelpulse.com/images/99999999-9999-9999-9999-999999999999/cc507bc6-b5c9-e411-8b9f-0050568e420d/630x355.jpg" />
+            <Card.Body>
+              <Card.Text>
+                <h5 className='date'> Jan 12 2019</h5>
+                <h3 className='title'>The Definitive Guide to Renting a Car: Tips and tricks to help you save</h3>
+
+                You’re always at risk of getting ripped off when you rent a car abroad. This guide will make sure you don’t get taken for a ride.Are you unsure about rental car excess insurance?
+              </Card.Text>
+              <Button href='https://www.rentalcover.com/ar/blog/car-rental-guide' variant="primary">Read More &gt;</Button>
+            </Card.Body>
+          </Card></Col>
+          <Col><Card className='cert' style={{ width: '22rem',height:'32rem' }}>
+            <Card.Img className='certimg' variant="top" src="https://www.kampalacityguide.com/wp-content/uploads/2021/08/car-rental.jpg" />
+            <Card.Body>
+
+              <Card.Text>
+                <h5 className='date'> Jun 19, 2017</h5>
+                <h3 className='title'>Car Rental Tips Every Traveler Should Know</h3>
+
+                Need wheels on your next trip? Renting a car can give you freedom and flexibility when you’re traveling, and in some parts of the world it’s the only feasible way to get around...
+              </Card.Text>
+              <Button href='https://www.smartertravel.com/car-rental-tips/' variant="primary">Read More &gt;</Button>
+            </Card.Body>
+          </Card></Col>
+        </Row>
+      </Container>
+
     </>
+
+
   );
 }

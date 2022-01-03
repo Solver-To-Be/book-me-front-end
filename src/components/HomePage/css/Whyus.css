@@ -1,9 +1,11 @@
 .mainwhy{
 
-background-color:  #5856D6;
-/* background-attachment: fixed; */
-/* background-size: cover; */
-/* background-position: bottom */
+background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(../Img/pexels-jeshootscom-451590.jpg);;
+background-attachment: scroll;
+background-size: cover;
+/* background-repeat: no-repeat; */
+/* background-position: bottom 30px; */
+background-position: center
 ;
 /* background-blend-mode: darken; */
 color : white;
@@ -35,6 +37,14 @@ line-height: 1.5;
     font-weight: 500;
     font-size: 15px;
     font-family: Poppins, Helvetica, Arial, sans-serif;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
 }
 
+.emog{
+font-size: 40px;
+/* color: transparent;  
+text-shadow: 0 0 3px white; */
+color: #fff;
+text-shadow: 1px 1px 1px #ccc;
+font-size: 1.5em;
+}
