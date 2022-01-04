@@ -4,7 +4,7 @@
     background-size: cover;
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: nowrap;
     align-content: stretch;
     justify-content: space-evenly;
@@ -22,4 +22,56 @@
 
 .liink{
     text-decoration: none;
+}
+
+.articc{
+    width: 600px;
+    height: 600px;
+    color:white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.801);
+    padding: 80px 40px 40px 40px
+}
+
+
+.articc h1{
+    text-align: center;
+    color: white;
+    /* position: relative;
+    top: 50%; */
+    font-family: 'Roboto', 'Helvetica Neue', Arial,Verdana,sans-serif;
+    font-size: 80px;
+    font-weight: 700;
+}
+
+.articc h3{
+    text-align: center;
+    color: white;
+    position: relative;
+    font-size: 35px;
+
+    top: 5%;
+    
+}
+
+
+.articc p{
+    margin-top:30px;
+    text-align: center;
+    color: white;
+    position: relative;
+    /* top: 50%; */
+    font-weight: 500;
+    font-size: 15px;
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    top: 10%;
+}
+
+.articc h2{
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 15%;
+    font-family: 'Lato', sans-serif;
+
 }

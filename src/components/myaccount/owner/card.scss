@@ -45,13 +45,35 @@ body, html {
   width:100%;
   
  }
-.body-content{
-  color: black;
-  text-align: left;
-  margin-top: 0 !important;
-  
-  
+// .body-content{
+//   color: black;
+//   text-align: left;
+//   margin-top: 0 !important;
+.cartit{
+  text-align: center;
+  font-family: 'PT Serif', serif;
+      color:black;
+  font-size:24px;
+  font-weight:400
 }
+
+.model{
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight:600;
+  text-align: center;
+  color:black
+
+}
+
+.price{
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight:600;
+  text-align: center;
+  color:black
+}
+  
 
 .date {
   font-size: 11px;
@@ -81,3 +103,5 @@ body, html {
   text-decoration: none;
   display:block;
 }
+
+

@@ -21,8 +21,15 @@ export default function Signupform() {
     }
     return (
         <>
-            <div className="loginback"></div>
+            
             <div className='login'>
+            {/* <div className="articc">
+        <h1>Book Me</h1>
+<h3>Welcome 🤩</h3>
+<p>
+Welcome to all our distinguished customers and visitors in our amazing site, we kindly ask you to log in first, or if you do not have an account, please Signup , so that you can have all our wonderful features on the site, whether you are a consumer, owner or driver</p>
+<h2>So let's start our journy , hurry up !</h2>
+        </div> */}
 
                 <Form className="foorm" onSubmit={handelSubmit} >
                     <Form.Group><img src='https://cengage.force.com/resource/1607465003000/loginIcon' width='100px' alt='pic'></img></Form.Group>
