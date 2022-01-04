@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
+import cookie from 'react-cookies';
 import Rentedmodal from './Rentmodal'
 import Carscard from './carsCard'
 import Ownermodal from './Ownermodal'
 import Search from './Search'
 import './cars.css'
 import './searchInput.scss'
+import { LoginContext } from '../signUp/Auth';
 
 export default function Cars() {
-
+    const context = useContext(LoginContext); 
+    // const token = context.token
     const [searchCars, setSearchCars] = useState([])
     const [showRentModal, setShowRentModal] = useState(false)
     const [rentedCar, setRentedCar] = useState({})
@@ -17,18 +20,22 @@ export default function Cars() {
     
 
     async function getCarOwner(id) {
-        
-            const res = await axios.get(`https://book-me401.herokuapp.com/getuser/${id}`)
-            setCarOwner(res.data)
-        
+        const res = await axios.get(`https://book-me401.herokuapp.com/getuser/${id}`)
+        console.log(res.data);
+            setCarOwner(res.data)        
     }
 
-    useEffect(async () => {
+    useEffect(async () => {        
+        // const qs = new URLSearchParams(window.location.search);
+        const cookieToken = cookie.load('auth');        
+        // const token = qs.get('token') || cookieToken || null;
+        
+        console.log(context.token);
         let config = {
             method: 'get',
             url: 'https://book-me401.herokuapp.com/getallcar',
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE'
+                'Authorization': `Bearer ${cookieToken}`
             },
             data: ''
         };
@@ -36,7 +43,7 @@ export default function Cars() {
         setSearchCars(res.data)
         console.log(searchCars, 'searchCars -=====');
     }, [])
-    console.log(rentedCar, 'rented car =====');
+    
     return (
         <div className='Cars'>
             <section className='searchPageHero'>

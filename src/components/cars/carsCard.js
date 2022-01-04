@@ -63,8 +63,7 @@ export default function Carscard(props) {
                 setShowRentModal={props.setShowRentModal}
                 setRentedCar={props.setRentedCar}
                 setShowCarOwnerModal={props.setShowCarOwnerModal}
-                getCarOwner={props.getCarOwner}
-               
+                getCarOwner={props.getCarOwner}               
 
             />
         </article>

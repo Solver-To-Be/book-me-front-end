@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { LoginContext } from '../../signUp/Auth';
 import LocationModel from './locationModel'
 import Card from './card'
 import Updatecar from './Updatecar'
@@ -9,11 +10,12 @@ import '../button.css'
 
 
 export default function Owner() {
+    const context = useContext(LoginContext);
     const host = "https://book-me401.herokuapp.com";
     const ownerConnection = io.connect(`${host}/owners`);
     const customConnection = io.connect(`${host}/customs`);
     const [payLoadArr, setPayLoadArr] = useState([])
-    let comName = 'ahmad'
+    let comName = context.userName;
     useEffect(() => {
         ownerConnection.emit("get-all", comName);
         ownerConnection.on("all", (payload) => {
@@ -85,7 +87,7 @@ export default function Owner() {
             method: 'get',
             url: 'https://book-me401.herokuapp.com/getmycar',
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE'
+                'Authorization': `Bearer ${context.token}`
             },
             data: ''
         };
@@ -110,8 +112,7 @@ export default function Owner() {
             method: 'post',
             url: 'https://book-me401.herokuapp.com/addcar',
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQwOTY5MzcwfQ.-fsobjjqAhp0TQP0nigtUx9adzGkJjRQc3ZFRhsn1Gg',
-                'Content-Type': 'application/json'
+                'Authorization': `Bearer ${context.token}`
             },
             data: object
         };

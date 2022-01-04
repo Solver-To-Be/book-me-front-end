@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { LoginContext } from '../signUp/Auth';
 import axios from "axios";
 import io from "socket.io-client";
+
+
 function Customer(props) {
+    const context = useContext(LoginContext);
     const host = "https://book-me401.herokuapp.com";
     const customConnection = io.connect(`${host}/customs`);
     const driverConnection = io.connect(`${host}/drivers`);
-    let marwan = "marwan";
+    let marwan = context.userName;
     const [carData, setCarData] = useState([]);
     const [call, setcall] = useState(0);
     useEffect(async () => {
@@ -14,8 +18,7 @@ function Customer(props) {
             method: "get",
             url: `https://book-me401.herokuapp.com/getcustomercar`,
             headers: {
-                Authorization:
-                    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1hcndhbiIsImlhdCI6MTY0MTIyNjk0Mn0.LICXRwOVwYD2mGGaGNHKAcF6qYcTPZPwrqiJgSrrhNk",
+                Authorization: `Bearer ${context.token}`,
                 "Content-Type": "application/json",
             },
             data: object,

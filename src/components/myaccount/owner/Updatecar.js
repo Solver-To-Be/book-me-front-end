@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { LoginContext } from '../../signUp/Auth';
 import Modal from 'react-bootstrap/Modal'
 import axios from 'axios'
 
 
+
 export default function Updatecar(props) {
+    const context = useContext(LoginContext);
     async function handelSubmit(event) {
         event.preventDefault()
         let object
@@ -34,7 +37,7 @@ export default function Updatecar(props) {
             method: 'put',
             url: `https://book-me401.herokuapp.com/updatecar/${props.selectedCar.id}`,
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE',
+                'Authorization': `Bearer ${context.token}`,
                 'Content-Type': 'application/json'
             },
             data: object
