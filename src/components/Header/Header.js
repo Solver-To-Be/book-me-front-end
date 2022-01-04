@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './Header.css'
+import { LoginContext } from '../signUp/Auth';
+
 
 
 export class Header extends Component {
@@ -10,6 +12,8 @@ export class Header extends Component {
 
         };
     }
+    static contextType = LoginContext;
+
 
     changeBackroung = () => {
         window.scrollY > 0
@@ -32,8 +36,7 @@ export class Header extends Component {
                     <a href='/'>Home</a>
                     <a href='/cars'>Cars</a>
                     <a href='/myAcount'>My Acount</a>
-                    <a href='/'>Log Out</a>
-                </nav>
+                    <a href='/' onClick={this.context.logout}>Log Out</a>                </nav>
 
             </div>
         )

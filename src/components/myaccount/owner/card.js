@@ -38,9 +38,9 @@ class Buttoon extends React.Component {
         return (
             <>
                 {this.props.car.status === 'taken' &&
-                  <button onClick={this.props.handleShow} className="button button-primary">
-                  Get Location
-              </button>  
+                  <Button onClick={this.props.handleShow} className="button button-primary">
+                   Location
+              </Button>  
                 }
                 {' '}<Button onClick={() => this.deleteCar(this.props.car.id)} className="button button-primary" variant="danger">Delete</Button>{' '}{' '}
                 <Button className="button button-primary" onClick={() => this.props.handelShowEdit(this.props.car)} variant="success">Edit</Button>

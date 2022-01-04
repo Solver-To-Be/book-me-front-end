@@ -36,9 +36,9 @@ export default class App extends React.Component {
             <Route exact path="/">
               { this.context.loggedIn && this.context.token ? <Home /> : <Signup /> }
             </Route>
-            <Route exact path="/login">
+            {/* <Route exact path="/login">
               <LoginPage />
-            </Route>
+            </Route> */}
           </Switch>
         </BrowserRouter>
         { this.context.loggedIn && <Footer /> }
