@@ -1,4 +1,5 @@
 import React, {  useContext } from 'react'
+import { Form, Row, Col, Button } from 'react-bootstrap'
 import Modal from 'react-bootstrap/Modal'
 import io from 'socket.io-client'
 import { LoginContext } from '../signUp/Auth';
@@ -12,7 +13,7 @@ export default function Updatecar(props) {
     
     
     async function handelSubmit(event) {
-        event.preventDefault()       
+        event.preventDefault()
         const object = {
             "name" : context.userName.username,
             "startDate": event.target.From.value,
@@ -43,19 +44,46 @@ export default function Updatecar(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <form onSubmit={handelSubmit}>
-                        <label>From</label>
-                        <input  type='date' name='From' />
-                        <label>To</label>
-                        <input type='date' name='To' />                
-                        
-                        <select name='select'  >
-                            <option value='no' >No Driver</option>
-                            <option value='yes'>with Driver</option>
-                        </select>
-                        <button type='submit'>Submit</button>
+                        <Row className="mb-3">
+                            <Form.Group as={Col} controlId="formGridEmail" className=''>
+                                <Form.Label>From</Form.Label>
+                                <Form.Control type="date" placeholder="Car Name" name='From' />
+                            </Form.Group>
+
+                            <Form.Group as={Col} >
+                                <Form.Label>To</Form.Label>
+                                <Form.Control type="date" placeholder="Car Type" name='To' />
+                            </Form.Group>
+                        </Row>
+
+
+
+                        <Row className="mb-3">
+
+
+                            <Form.Group as={Col} controlId="formGridState">
+                                <Form.Label>with/without Driver</Form.Label>
+                                <Form.Select name='select' defaultValue="Choose...">
+                                    <option>Choose...</option>
+                                    <option value='no' >No Driver</option>
+                                    <option value='yes'>with Driver</option>
+                                </Form.Select>
+                            </Form.Group>
+
+
+                        </Row>
+
+
+
+                        <Button variant="primary" type="submit">
+                            Submit
+                        </Button>
                     </form>
                 </Modal.Body>
             </Modal>
         </div>
     )
 }
+
+
+

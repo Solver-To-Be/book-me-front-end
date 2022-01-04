@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { LoginContext } from '../../signUp/Auth';
 import './card.scss'
+import { Button } from 'react-bootstrap';
 
 class CardHeader extends React.Component {
     render() {
@@ -16,11 +17,11 @@ class CardHeader extends React.Component {
         )
     }
 }
-class Button extends React.Component {
+class Buttoon extends React.Component {
     static contextType = LoginContext;
      deleteCar(id) {
         console.log(id);
-        var data = '';    
+        var data = '';
         var config = {
             method: 'delete',
             url: `https://book-me401.herokuapp.com/deletecar/${id}`,
@@ -30,23 +31,21 @@ class Button extends React.Component {
             data: data
         };
         axios(config)
-   const afterDeleteCars=  this.props.myCars.filter(car=>car.id !== id)
-   this.props.setMyCars(afterDeleteCars)
+        const afterDeleteCars = this.props.myCars.filter(car => car.id !== id)
+        this.props.setMyCars(afterDeleteCars)
     }
     render() {
         return (
             <>
                 {this.props.car.status === 'taken' &&
-                  <button onClick={this.props.handleShow} className="button button-primary">
-                  Get Location
-              </button>  
+                  <Button onClick={this.props.handleShow} className="button button-primary">
+                   Location
+              </Button>  
                 }
-                <button onClick={() => this.deleteCar(this.props.car.id)} className="button button-primary">
-                    Delete
-                </button>
-                <button className="button button-primary" onClick={() => this.props.handelShowEdit(this.props.car)}>
-                    Edit
-                </button>
+                {' '}<Button onClick={() => this.deleteCar(this.props.car.id)} className="button button-primary" variant="danger">Delete</Button>{' '}{' '}
+                <Button className="button button-primary" onClick={() => this.props.handelShowEdit(this.props.car)} variant="success">Edit</Button>
+
+
             </>
         )
     }
@@ -60,7 +59,7 @@ class CardBody extends React.Component {
                 <p className="body-content">{this.props.car.carType} {this.props.car.model}</p>
                 <p id={this.props.car.id}></p>
 
-                <Button
+                <Buttoon
                     handleShow={this.props.handleShow}
                     car={this.props.car}
                     handelShowEdit={this.props.handelShowEdit}

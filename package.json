@@ -17,6 +17,7 @@
     "faker": "^5.5.3",
     "jsonwebtoken": "^8.5.1",
     "mdb-react-ui-kit": "^2.2.0",
+    "mdbreact": "^5.2.0",
     "node-sass": "^6.0.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
