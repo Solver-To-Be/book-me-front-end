@@ -1,0 +1,23 @@
+.login{
+    background-image: url(../Img//Login/pexels-denys-gromov-4502384.jpg);
+    box-sizing: border-box;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.foorm{
+    color:white;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.801);
+    padding: 80px 40px 40px 40px
+}
+
+
+

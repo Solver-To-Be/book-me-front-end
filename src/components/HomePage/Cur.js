@@ -65,6 +65,7 @@ export default class MultipleItems extends Component {
         </div>
         <div className="carsu">
           <Carousel
+         
             swipeable={false}
             draggable={false}
             showDots={true}

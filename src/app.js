@@ -10,7 +10,7 @@ import Cars from './components/cars/Cars';
 import Signup from './components/signUp/Signup';
 import { LoginContext } from './components/signUp/Auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import LoginPage from './components/HomePage/LoginPage';
 
 // const cap = 'owner'
 // const isAuth = false
@@ -35,6 +35,9 @@ export default class App extends React.Component {
             </Route>
             <Route exact path="/">
               { this.context.loggedIn && this.context.token ? <Home /> : <Signup /> }
+            </Route>
+            <Route exact path="/login">
+              <LoginPage />
             </Route>
           </Switch>
         </BrowserRouter>
