@@ -23,7 +23,7 @@ export default function Notefication(props) {
                         return (<>
                             <Item>there is a customer need a car that has id:${payload.carid} has name${payload.carName} from ${payload.startDate} to ${payload.endDate}</Item>
                             <button onClick={() => props.renResponse(payload, 'ok')}>Accept</button>
-                            <button onClick={() => props.renResponse(payload, 'null')}>Refuse</button>
+                            <button onClick={() => props.renResponse(payload, 'refused')}>Refuse</button>
                         </>)
                     })
                 }

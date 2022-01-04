@@ -1,26 +1,27 @@
-import React from 'react'
+import React, {  useContext } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import io from 'socket.io-client'
-
+import { LoginContext } from '../signUp/Auth';
 
 
 export default function Updatecar(props) {
-
+    const context = useContext(LoginContext);
     const host = "https://book-me401.herokuapp.com";
     const ownersConnection = io.connect(`${host}/owners`);
     
     
-
+    
     async function handelSubmit(event) {
         event.preventDefault()       
         const object = {
-            "name" : 'marwan',
+            "name" : context.userName.username,
             "startDate": event.target.From.value,
             "endDate": event.target.To.value,
             "driver": event.target.select.value,
             "carid": props.rentedCar.id,
         }
         ownersConnection.emit("req-fromCus", object);
+        // ownersConnection.disconnect()
         console.log("wait the accepted from the owner");
         props.setShowRentModal(false)
     }

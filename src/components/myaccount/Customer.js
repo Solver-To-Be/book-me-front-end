@@ -2,14 +2,11 @@ import React, { useEffect, useState, useContext } from "react";
 import { LoginContext } from '../signUp/Auth';
 import axios from "axios";
 import io from "socket.io-client";
-
-
 function Customer(props) {
     const context = useContext(LoginContext);
     const host = "https://book-me401.herokuapp.com";
     const customConnection = io.connect(`${host}/customs`);
-    const driverConnection = io.connect(`${host}/drivers`);
-    let marwan = context.userName;
+    let marwan = context.userName.username;
     const [carData, setCarData] = useState([]);
     const [call, setcall] = useState(0);
     useEffect(async () => {
@@ -28,6 +25,7 @@ function Customer(props) {
         console.log(res.data);
     }, [call]);
     customConnection.on("res", (payload) => {
+        console.log(payload);
         if (marwan === payload.name && payload.status === "refused") {
             console.log("your rental request has been rejected");
         }
@@ -35,7 +33,6 @@ function Customer(props) {
             setcall(call + 1);
             console.log("Your rental request has been accepted");
             if (payload.driver === 'yes') {
-                driverConnection.emit('req-driver', payload)
                 console.log("you have a driver");
             }
         }
