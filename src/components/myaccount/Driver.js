@@ -8,7 +8,7 @@ function Driver(props) {
   const context = useContext(LoginContext);
   const host = "https://book-me401.herokuapp.com";
   const driverConnection = io.connect(`${host}/drivers`);
-  const driverName = context.userName
+  const driverName = context.userName.username
 
   driverConnection.on("trip", (payload) => {
     if (driverName === payload.driver) {
@@ -32,11 +32,12 @@ const [mycars, setMyCars] = useState([])
       data: ''
   };
   let res = await axios(config)
-  setMyCars(res.data)    
+  console.log(res.data);
+  setMyCars([res.data])    
   }, [])
   return <div>
     {mycars.map(car=>{
-      return <h1>{car.name}</h1>
+      return (<h1>{car.name}</h1>)
     })}
   </div>;
 }

@@ -30,7 +30,7 @@ export default function Cars() {
         const cookieToken = cookie.load('auth');        
         // const token = qs.get('token') || cookieToken || null;
         
-        console.log(context.token);
+        console.log(cookieToken);
         let config = {
             method: 'get',
             url: 'https://book-me401.herokuapp.com/getallcar',
