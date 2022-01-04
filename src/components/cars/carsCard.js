@@ -38,9 +38,14 @@ class CardBody extends React.Component {
         return (
             <div className="card-body">
 
-                <p className="body-content">{this.props.searchCars.name}</p>
-                <p className="body-content">{this.props.searchCars.carType} {this.props.searchCars.model}</p>
-                <p className="body-content">Rent cost : {this.props.searchCars.rentCost} </p>
+                <p className="cartit">{this.props.searchCars.name} - {this.props.searchCars.carType} </p>
+                <h6 className='model'>Car Model : {this.props.searchCars.model}</h6>
+             <h5 className='price'> Cost : {this.props.searchCars.rentCost} <br/> <br/> {this.props.searchCars.status}</h5>
+
+
+           
+
+
 
                 <Buttoon
                     setShowRentModal={this.props.setShowRentModal}
