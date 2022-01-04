@@ -63,8 +63,7 @@ export default function Updatecar(props) {
 
                             <Form.Group as={Col} controlId="formGridState">
                                 <Form.Label>with/without Driver</Form.Label>
-                                <Form.Select name='select' defaultValue="Choose...">
-                                    <option>Choose...</option>
+                                <Form.Select name='select' >                                   
                                     <option value='no' >No Driver</option>
                                     <option value='yes'>with Driver</option>
                                 </Form.Select>

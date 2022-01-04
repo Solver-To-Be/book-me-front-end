@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
+// import Stack from '@mui/material/Stack';
+import Offcanvas from 'react-bootstrap/Offcanvas'
+import Button from 'react-bootstrap/Button'
 import { styled } from '@mui/material/styles';
 import './Notefication.css'
 
@@ -14,10 +16,49 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Notefication(props) {
     console.log(props.payLoadArr);
-    return (
-        <div id='Cart'>
 
-            <Stack spacing={2} >
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+    return (
+        <div >
+
+            <a href="#" class="notification" onClick={handleShow} >
+                <i class="material-icons" >time_to_leave</i>
+                {props.payLoadArr.length != 0 && <span class="badge">{props.payLoadArr.length}</span>}
+            </a>
+            {/* <Button className='notefication' variant="primary" onClick={handleShow}>
+                Launch
+            </Button> */}
+
+            <Offcanvas show={show} onHide={handleClose} placement={'end'}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>My Notefication</Offcanvas.Title>
+                </Offcanvas.Header>
+                {props.payLoadArr.map(payload => {
+                    return (
+                        <>
+                            <Offcanvas.Body>
+                                there is a customer need a car that has id:${payload.carid} has name${payload.carName} from ${payload.startDate} to ${payload.endDate}
+                            </Offcanvas.Body>
+                            <Button variant="primary" onClick={() => props.renResponse(payload, 'ok')}>
+                                Accepte
+                            </Button>
+                            <Button variant="primary" onClick={() => props.renResponse(payload, 'refused')}>
+                                Refuse
+                            </Button>
+                        </>
+                    )
+                })
+                }
+            </Offcanvas>
+
+        </div>
+    )
+}
+
+{/* <Stack spacing={2} >
                 {
                     props.payLoadArr.map(payload => {
                         return (<>
@@ -27,7 +68,4 @@ export default function Notefication(props) {
                         </>)
                     })
                 }
-            </Stack>
-        </div>
-    )
-}
+            </Stack> */}
