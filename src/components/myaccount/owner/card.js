@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { LoginContext } from '../../signUp/Auth';
 import './card.scss'
 
 class CardHeader extends React.Component {
@@ -16,7 +17,7 @@ class CardHeader extends React.Component {
     }
 }
 class Button extends React.Component {
-
+    static contextType = LoginContext;
      deleteCar(id) {
         console.log(id);
         var data = '';    
@@ -24,7 +25,7 @@ class Button extends React.Component {
             method: 'delete',
             url: `https://book-me401.herokuapp.com/deletecar/${id}`,
             headers: {
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE'
+                'Authorization': `Bearer ${this.context.token}`
             },
             data: data
         };

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-// import { Carousel} from "react-bootstrap";
+import { LoginContext } from '../signUp/Auth';
+import cookie from 'react-cookies';
 import './css/Carsu.css';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -24,32 +25,37 @@ const responsive = {
   }
 };
 
-       
 
 export default class MultipleItems extends Component {
+  static contextType = LoginContext;
   constructor(props) {
     super(props);
     this.state = {
-   data:[]
+      data: [],
+      
     };
   };
-  componentDidMount = async() => {
-    let config = {
-      method: 'get',
-      url: 'https://book-me401.herokuapp.com/getallcar',
-      headers: {
-          'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFobWFkIiwiaWF0IjoxNjQxMTk2NTgyfQ.baZ8MGjs4jYJzZzEMjPUGhogKpZxojLujSwPxmeDJAE'
-      },
-      data: ''
-  };
-  let res = await axios(config)
-  console.log(res.data)
-  const bestOffer = res.data.filter(car=> parseInt(car.rentCost.slice(0, car.rentCost.indexOf('/')))  <= 50 )
-  this.setState({
-    data:bestOffer
-  })
-  console.log(this.state.data)
-  };
+
+  componentDidMount = async () => {   
+              
+      let config = {
+        method: 'get',
+        url: 'https://book-me401.herokuapp.com/getallcar',
+        headers: {
+          'Authorization': `Bearer ${this.context.token}`
+        },
+        data: ''
+      };
+      let res = await axios(config)
+      console.log(res.data)
+      const bestOffer = res.data.filter(car => parseInt(car.rentCost.slice(0, car.rentCost.indexOf('/'))) <= 50)
+      this.setState({
+        data: bestOffer
+      })
+      console.log(this.state.data)
+   
+    };
+    
   render() {
 
     return (
@@ -58,8 +64,6 @@ export default class MultipleItems extends Component {
         <div className="mesto">      Don't miss the best deals on the best cars
         </div>
         <div className="carsu">
-
-
           <Carousel
             swipeable={false}
             draggable={false}
@@ -78,13 +82,13 @@ export default class MultipleItems extends Component {
             dotListClass="custom-dot-list-style"
             itemClass="carousel-item-padding-40-px"
           >
-            {this.state.data.map(car=>{
+            {this.state.data.map(car => {
               return (
-                <div className="imm"> <Card card={car}  /> </div>
+                <div className="imm"> <Card card={car} /> </div>
 
               )
             })}
-           
+
           </Carousel>;
         </div>
       </>
