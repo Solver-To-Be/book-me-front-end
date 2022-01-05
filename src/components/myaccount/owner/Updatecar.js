@@ -9,7 +9,7 @@ import './Heroacc.css'
 export default function Updatecar(props) {
     const context = useContext(LoginContext);
     async function handelSubmit(event) {
-        console.log('hehe')
+        
         event.preventDefault()
         let object
         if(event.target.select.value === 'avaliable'){
@@ -49,8 +49,8 @@ export default function Updatecar(props) {
             if (car.id !== res.data.id) { return car } else { return res.data }
         })
         props.setMyCars(updatedCarsList)
-        // console.log(updatedCarsList,'here is the ubdated response');
-        console.log(props.myCars, 'here is the state');
+        
+        
         props.setShowEdit(false)
 
     }

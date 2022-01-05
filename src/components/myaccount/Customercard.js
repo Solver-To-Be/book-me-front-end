@@ -27,7 +27,7 @@ class CardBody extends React.Component {
 }
 
 export default function Card(props) {
-    console.log(props.car);
+   
     return (
         <article className="card">
             <CardHeader image={props.car.photo} />

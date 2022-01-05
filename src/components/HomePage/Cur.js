@@ -47,12 +47,12 @@ export default class MultipleItems extends Component {
         data: ''
       };
       let res = await axios(config)
-      console.log(res.data)
+      
       const bestOffer = res.data.filter(car => parseInt(car.rentCost.slice(0, car.rentCost.indexOf('/'))) <= 50)
       this.setState({
         data: bestOffer
       })
-      console.log(this.state.data)
+      
    
     };
     

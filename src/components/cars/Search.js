@@ -6,8 +6,8 @@ export default function Search(props) {
         event.preventDefault()
         const searchItem = event.target.search.value
         const searchResponse = props.searchCars.filter(car=> car.name.toLowerCase().includes(searchItem.toLowerCase()))
-        props.setSearchCars(searchResponse)
-        console.log(searchResponse);
+        props.setSearchCarsTow(searchResponse)
+        
     }
     return (
         <div className='searchSection'>
