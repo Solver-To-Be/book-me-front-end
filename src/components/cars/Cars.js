@@ -31,6 +31,7 @@ export default function Cars() {
     const context = useContext(LoginContext); 
     // const token = context.token
     const [searchCars, setSearchCars] = useState([])
+    const [searchCarsTow, setSearchCarsTow] = useState([])
     const [showRentModal, setShowRentModal] = useState(false)
     const [rentedCar, setRentedCar] = useState({})
     const [showCarOwnerModal, setShowCarOwnerModal] = useState(false)
@@ -59,6 +60,7 @@ export default function Cars() {
         };
         let res = await axios(config)
         setSearchCars(res.data)
+        setSearchCarsTow(res.data)
         console.log(searchCars, 'searchCars -=====');
     }, [])
     
@@ -67,7 +69,8 @@ export default function Cars() {
             <section className='searchPageHero'>
              <Search 
              searchCars={searchCars} 
-             setSearchCars={setSearchCars} />
+             setSearchCars={setSearchCars}
+             setSearchCarsTow={setSearchCarsTow} />
             </section>
           
                     <>
@@ -89,7 +92,7 @@ export default function Cars() {
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
                   >
-                      {searchCars.map((car, idx) => {
+                      {searchCarsTow.map((car, idx) => {
                 return (    
                         <Carscard key={idx}
                         searchCars={car}
