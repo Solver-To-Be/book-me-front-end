@@ -4,6 +4,7 @@ import axios from "axios";
 import io from "socket.io-client";
 import Card from './Customercard'
 import { Row, Col } from "react-bootstrap";
+import './heromero.css'
 function Customer(props) {
     const context = useContext(LoginContext);
     const host = "https://book-me401.herokuapp.com";
@@ -40,8 +41,16 @@ function Customer(props) {
         }
     });
     return <div>
-        <h1>User Name : {context.userName.username}</h1>
-        <h1>role : {context.role}</h1>
+        <div className="heromero">My Account</div>
+        <div className="dodo">
+           <div className="pepeimo"> <img className="pepe" src="https://ca.slack-edge.com/TNGRRLUMA-U023D774KNE-fa9171ed4672-512" alt=""></img></div>
+            <div className="nemo">
+                <h1>Client Name : {context.userName.username}</h1>
+                <h2>Client Role : {context.role}</h2>
+            </div>
+
+        </div>
+
         <section>
             <Row>
                 {carData.map((car, idx) => {

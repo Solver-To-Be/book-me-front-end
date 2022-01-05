@@ -4,7 +4,7 @@ import axios from 'axios'
 import io from "socket.io-client";
 import Card from './Customercard'
 import { Row, Col } from "react-bootstrap";
-
+import './heromero.css'
 function Driver(props) {
 
   const context = useContext(LoginContext);
@@ -41,8 +41,17 @@ function Driver(props) {
   console.log(mycars,'mycars');
   console.log(context,'context');
   return <div>
-    <h1>User Name : {context.userName.username}</h1>
-    <h1>role : {context.role}</h1>
+
+<div className="heromero">My Account</div>
+        <div className="dodo">
+           <div className="pepeimo"> <img className="pepe" src="https://cdn4.iconfinder.com/data/icons/characters-4/512/1-09-512.png" alt=""></img></div>
+            <div className="nemo">
+                <h1>Client Name : {context.userName.username}</h1>
+                <h2>Client Role : {context.role}</h2>
+            </div>
+
+        </div>
+   
     <Row>
       {mycars.map((car, idx) => {
         return (
