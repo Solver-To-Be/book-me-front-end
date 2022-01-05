@@ -18,18 +18,18 @@ export default function Owner() {
     const customConnection = io.connect(`${host}/customs`);
     const [payLoadArr, setPayLoadArr] = useState([])
     let comName = context.userName.username;
-    // useEffect(() => {
-    //     ownerConnection.emit("get-all", comName);
-    // }, [payLoadArr])
-    // ownerConnection.on("all", (payload) => {
-    //     if (payload.ownerName === comName) {
-    //         console.log(`there is a customer need a car that has id:${payload.carid} has name : ${payload.carName} from ${payload.startDate} to ${payload.endDate}`);
-    //     }
-    //     setPayLoadArr(payload)
-    //     console.log(payload);
-    // });
+    useEffect(() => {
+        ownerConnection.emit("get-all", comName);
+    }, [])
+    ownerConnection.on("all", (payload) => {
+        if (payload.ownerName === comName) {
+            console.log(`there is a customer need a car that has id:${payload.carid} has name : ${payload.carName} from ${payload.startDate} to ${payload.endDate}`);
+        }
+        setPayLoadArr(payload)
+       
+    });
     ownerConnection.on("rent-req", (payload) => {
-        console.log(payload, '==========================');
+        
         if (payload.ownerName === comName) {
             console.log(
                 `there is a customer need a car that has id:${payload.carid} has name${payload.carName} from ${payload.startDate} to ${payload.endDate} `
@@ -41,19 +41,17 @@ export default function Owner() {
 
     function renResponse(payload, string) {
         console.log("response  the rent req ");
-        // if (string === 'ok') {
+        
             const filterPayLoad = payLoadArr.filter(car => car.carid !== payload.carid)
             setPayLoadArr(filterPayLoad)
-        // }
-        console.log(payload);
+      
+        
         let arg = { status: string, carid: payload.carid, name: payload.name, driver: payload.driver };
         customConnection.emit("rental-res", arg);
     }
 
 
-    // ========================================
-    // ========================================
-    // ========================================
+  
 
     const [showEdit, setShowEdit] = useState(false);
     const [selectedCar, setSelectedCar] = useState({});
@@ -104,7 +102,7 @@ export default function Owner() {
     async function handelSubmit(event) {
 
         event.preventDefault()
-        console.log(event.target.value)
+        
         const object = {
             "name": event.target.name.value,
             "carType": event.target.carType.value,
@@ -127,7 +125,7 @@ export default function Owner() {
         setMyCars([...myCars, res.data])
         setShowAddCar(false)
     }
-    console.log(myCars, 'after add --------------------');
+ 
     return (
         <>
             <div className='heroacc'>
@@ -167,8 +165,7 @@ export default function Owner() {
 
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label>State</Form.Label>
-                                    <Form.Select name='select' defaultValue="Choose...">
-                                        <option>Choose...</option>
+                                    <Form.Select name='select' >
                                         <option value='/hour' >Hour</option>
                                         <option value='/day'>Day</option>
                                         <option value='/month' >Month</option>

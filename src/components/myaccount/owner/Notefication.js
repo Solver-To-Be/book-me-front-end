@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Notefication(props) {
-    console.log(props.payLoadArr);
+    
 
     const [show, setShow] = useState(false);
 

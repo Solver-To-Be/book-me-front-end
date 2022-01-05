@@ -40,7 +40,7 @@ export default function Cars() {
 
     async function getCarOwner(id) {
         const res = await axios.get(`https://book-me401.herokuapp.com/getuser/${id}`)
-        console.log(res.data);
+        
             setCarOwner(res.data)        
     }
 
@@ -49,7 +49,7 @@ export default function Cars() {
         const cookieToken = cookie.load('auth');        
         // const token = qs.get('token') || cookieToken || null;
         
-        console.log(cookieToken);
+       
         let config = {
             method: 'get',
             url: 'https://book-me401.herokuapp.com/getallcar',
@@ -61,7 +61,7 @@ export default function Cars() {
         let res = await axios(config)
         setSearchCars(res.data)
         setSearchCarsTow(res.data)
-        console.log(searchCars, 'searchCars -=====');
+       
     }, [])
     
     return (

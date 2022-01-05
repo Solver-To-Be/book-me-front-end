@@ -25,10 +25,10 @@ function Customer(props) {
         };
         const res = await axios(config);
         setCarData(res.data);
-        console.log(res.data);
+        
     }, [call]);
     customConnection.on("res", (payload) => {
-        console.log(payload);
+        
         if (marwan === payload.name && payload.status === "refused") {
             console.log("your rental request has been rejected");
         }
