@@ -1,36 +1,50 @@
 .login{
-    background-image: url(../Img//Login/pexels-denys-gromov-4502384.jpg);
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../Img//Login/pexels-denys-gromov-4502384.jpg);
     box-sizing: border-box;
     background-size: cover;
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     align-content: stretch;
     justify-content: space-evenly;
     align-items: center;
-    
+    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .foorm{
     color:white;
-    border-radius: 20px;
+    /* border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.801);
-    padding: 80px 40px 40px 40px
+    padding: 80px 40px 40px 40px */
 }
 
 
 .liink{
     text-decoration: none;
 }
+.toto{
 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: center;
+
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    padding: 80px 40px 40px 40px;
+    /* border-radius: 20px; */
+}
 .articc{
-    width: 600px;
-    height: 600px;
-    color:white;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.801);
-    padding: 80px 40px 40px 40px
+    width: 600px; 
+     height: 600px;
+    /* color:white; */
+    /* border-radius: 20px; */
+    /* background-color: rgba(0, 0, 0, 0.801); */
+    padding: 80px 40px 40px 40px;
+    border-right: 1px solid white ;
+    margin-right: 40px;
 }
 
 

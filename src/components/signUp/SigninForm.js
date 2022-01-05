@@ -16,6 +16,7 @@ export default function SigninForm(props) {
 
       
         <div className='login'>
+          <div className='toto'>
         <div className="articc">
         <h1>Book Me</h1>
 <h3>Welcome 🤩</h3>
@@ -50,7 +51,7 @@ Welcome to all our distinguished customers and visitors in our amazing site, we 
   </Button>
   
 </Form>
-  
+</div>
         </div>
         </>
     )
