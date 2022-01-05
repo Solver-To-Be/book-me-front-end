@@ -39,15 +39,20 @@ export default function Notefication(props) {
                 {props.payLoadArr.map(payload => {
                     return (
                         <>
-                            <Offcanvas.Body>
-                                there is a customer need a car that has id:${payload.carid} has name${payload.carName} from ${payload.startDate} to ${payload.endDate}
-                            </Offcanvas.Body>
-                            <Button variant="primary" onClick={() => props.renResponse(payload, 'ok')}>
-                                Accepte
-                            </Button>
-                            <Button variant="primary" onClick={() => props.renResponse(payload, 'refused')}>
+                            <Offcanvas.Body >
+                             <div className='cvc'>
+                              <h3 className='titt'>  There is a customer need a car that has id: {payload.carid} has name {payload.carName} from {payload.startDate} to {payload.endDate} </h3>
+                                <br/>
+
+                                <Button variant="primary" onClick={() => props.renResponse(payload, 'ok')}>
+                                Accept
+                            </Button> {' '}
+                            <Button  variant="danger"  onClick={() => props.renResponse(payload, 'refused')}>
                                 Refuse
                             </Button>
+                            </div>
+                            </Offcanvas.Body>
+                           
                         </>
                     )
                 })
