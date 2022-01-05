@@ -165,8 +165,7 @@ export default function Owner() {
 
                                 <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label>State</Form.Label>
-                                    <Form.Select name='select' defaultValue="Choose...">
-                                        <option>Choose...</option>
+                                    <Form.Select name='select' >
                                         <option value='/hour' >Hour</option>
                                         <option value='/day'>Day</option>
                                         <option value='/month' >Month</option>
