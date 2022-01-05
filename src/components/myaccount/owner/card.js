@@ -59,11 +59,6 @@ class CardBody extends React.Component {
                 <h6 className='model'>Car Model : {this.props.car.model}</h6>
              <h5 className='price'> Cost : {this.props.car.rentCost} <br/> <br/> {this.props.car.status}</h5>
 
-
-
-
-
-
                 <Buttoon
                     handleShow={this.props.handleShow}
                     car={this.props.car}
@@ -76,7 +71,6 @@ class CardBody extends React.Component {
 }
 
 export default function Card(props) {
-
     return (
         <article className="card">
             <CardHeader image={props.car.photo} />

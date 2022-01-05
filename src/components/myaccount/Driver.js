@@ -1,7 +1,9 @@
-import React, { useContext,useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LoginContext } from '../signUp/Auth';
 import axios from 'axios'
 import io from "socket.io-client";
+import Card from './Customercard'
+import { Row, Col } from "react-bootstrap";
 
 function Driver(props) {
 
@@ -21,24 +23,40 @@ function Driver(props) {
       );
     }
   });
-const [mycars, setMyCars] = useState([])
-  useEffect(async() => {
+  const [mycars, setMyCars] = useState([])
+  useEffect(async () => {
+   
     let config = {
       method: 'get',
       url: 'https://book-me401.herokuapp.com/getdrivercar',
       headers: {
-          'Authorization': `Bearer ${context.token}`
+        'Authorization': `Bearer ${context.token}`
       },
       data: ''
-  };
-  let res = await axios(config)
-  console.log(res.data);
-  setMyCars([res.data])    
+    };
+    let res = await axios(config)
+    console.log(res.data);
+    setMyCars([res.data])
   }, [])
+  console.log(mycars,'mycars');
+  console.log(context,'context');
   return <div>
-    {mycars.map(car=>{
-      return (<h1>{car.name}</h1>)
-    })}
+    <h1>User Name : {context.userName.username}</h1>
+    <h1>role : {context.role}</h1>
+    <Row>
+      {mycars.map((car, idx) => {
+        return (
+          <Col md={4} key={idx}>
+
+            <Card key={idx}
+              car={car}
+            />
+          </Col>
+        )
+      })}
+    </Row>
+
   </div>;
 }
 export default Driver;
+

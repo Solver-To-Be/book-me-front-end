@@ -18,16 +18,16 @@ export default function Owner() {
     const customConnection = io.connect(`${host}/customs`);
     const [payLoadArr, setPayLoadArr] = useState([])
     let comName = context.userName.username;
-    useEffect(() => {
-        ownerConnection.emit("get-all", comName);
-    }, [])
-    ownerConnection.on("all", (payload) => {
-        if (payload.ownerName === comName) {
-            console.log(`there is a customer need a car that has id:${payload.carid} has name : ${payload.carName} from ${payload.startDate} to ${payload.endDate}`);
-        }
-        setPayLoadArr(payload)
-        console.log(payload);
-    });
+    // useEffect(() => {
+    //     ownerConnection.emit("get-all", comName);
+    // }, [payLoadArr])
+    // ownerConnection.on("all", (payload) => {
+    //     if (payload.ownerName === comName) {
+    //         console.log(`there is a customer need a car that has id:${payload.carid} has name : ${payload.carName} from ${payload.startDate} to ${payload.endDate}`);
+    //     }
+    //     setPayLoadArr(payload)
+    //     console.log(payload);
+    // });
     ownerConnection.on("rent-req", (payload) => {
         console.log(payload, '==========================');
         if (payload.ownerName === comName) {
@@ -180,20 +180,14 @@ export default function Owner() {
                                     <Form.Control placeholder="Car Status" name='carStatus' />
                                 </Form.Group>
                             </Row>
-
-
-
                             <Button variant="primary" type="submit">
                                 Submit
                             </Button>
                         </form> : <>  <h3>Add , Edit , and Delete your own cars</h3>
-
                             <h2>Let's start 🤩</h2> <button className='button-77' onClick={() => setShowAddCar(true)}>Add New Car</button></>
-
                 }
             </div>
             <div style={{ marginTop: '60px' }}>
-
                 <section>
                     <Row>
                         {myCars.map((car, idx) => {
@@ -206,7 +200,6 @@ export default function Owner() {
                                         handelShowEdit={handelShowEdit}
                                         myCars={myCars}
                                         setMyCars={setMyCars}
-
                                     />
                                 </Col>
                             )
