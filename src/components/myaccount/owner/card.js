@@ -20,7 +20,7 @@ class CardHeader extends React.Component {
 class Buttoon extends React.Component {
     static contextType = LoginContext;
      deleteCar(id) {
-        console.log(id);
+        
         var data = '';
         var config = {
             method: 'delete',

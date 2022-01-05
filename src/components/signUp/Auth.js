@@ -55,11 +55,10 @@ class Auth extends React.Component {
 
     validateToken = (token, role) => {
         
-        console.log(token, role);
+        
         try {
             let user = jwt.verify(token, 'secret');
-            console.log(user, '======');
-            console.log(token, '++++++++');
+            
           this.setLoginState(true, token, user, role);
         }
         catch (e) {

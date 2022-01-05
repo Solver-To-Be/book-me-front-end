@@ -35,11 +35,10 @@ function Driver(props) {
       data: ''
     };
     let res = await axios(config)
-    console.log(res.data);
+    
     setMyCars([res.data])
   }, [])
-  console.log(mycars,'mycars');
-  console.log(context,'context');
+  
   return <div>
 
 <div className="heromero">My Account</div>
