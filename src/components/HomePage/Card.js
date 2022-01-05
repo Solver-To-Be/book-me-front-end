@@ -4,7 +4,7 @@ import { MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBRow, 
 export default function Card(props) {
     return (
         <div>
-             <MDBCard className='h-100'style={{ width: '22rem',height:'42rem' }}>
+             <MDBCard className='h-100'style={{ width: '22rem',height:'42rem',borderRadius:'10px' }}>
           <MDBCardImage
             src={props.card.photo}
             alt='Hollywood Sign on The Hill'
