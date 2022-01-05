@@ -2,6 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import { LoginContext } from '../signUp/Auth';
 import axios from "axios";
 import io from "socket.io-client";
+import Card from './Customercard'
+import { Row, Col } from "react-bootstrap";
 function Customer(props) {
     const context = useContext(LoginContext);
     const host = "https://book-me401.herokuapp.com";
@@ -37,14 +39,24 @@ function Customer(props) {
             }
         }
     });
-    return <div><section>
-        {carData.map((car, idx) => {
-            return (<>
-                <h2>{car.name}</h2>
-                <h2>{car.id}</h2>
-            </>
-            )
-        })}
-    </section></div>;
+    return <div>
+        <h1>User Name : {context.userName.username}</h1>
+        <h1>role : {context.role}</h1>
+        <section>
+            <Row>
+                {carData.map((car, idx) => {
+                    return (
+                        <Col md={4} key={idx}>
+
+                            <Card key={idx}
+                                car={car}
+                            />
+                        </Col>
+                    )
+                })}
+            </Row>
+        </section>
+    </div>;
 }
 export default Customer;
+

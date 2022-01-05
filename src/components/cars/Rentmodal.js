@@ -55,12 +55,7 @@ export default function Updatecar(props) {
                                 <Form.Control type="date" placeholder="Car Type" name='To' />
                             </Form.Group>
                         </Row>
-
-
-
                         <Row className="mb-3">
-
-
                             <Form.Group as={Col} controlId="formGridState">
                                 <Form.Label>with/without Driver</Form.Label>
                                 <Form.Select name='select' >                                   
@@ -68,12 +63,7 @@ export default function Updatecar(props) {
                                     <option value='yes'>with Driver</option>
                                 </Form.Select>
                             </Form.Group>
-
-
                         </Row>
-
-
-
                         <Button variant="primary" type="submit">
                             Submit
                         </Button>
