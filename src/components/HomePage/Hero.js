@@ -1,49 +1,30 @@
 import React from "react";
-import Carousel from 'react-bootstrap/Carousel'
-
+import { Button } from "react-bootstrap";
+import "./css/Hero.css"
 export default function Hero() {
-    let res = ['https://images.wallpaperscraft.com/image/single/mercedesbenz_mercedes_car_144181_1920x1080.jpg', 'https://wallpapercave.com/wp/wp1932414.jpg','https://images.wallpaperscraft.com/image/single/tesla_model_s_tesla_car_142847_1920x1080.jpg']
 
     return (
+      <>
       <div className="hero" >      
-      <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={res[0]}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={res[1]}
-          alt="Second slide"
-        />
-    
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={res[2]}
-          alt="Third slide"
-        />
-    
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel> 
-    </div>    
 
+<h1>Book Me</h1>
+<h3>Find Best Cars , Prices , and More</h3>
+<p>
+Browse many cars on our website and choose the most suitable car for you in terms of type, price and the most suitable for your family <br/>
+
+    Book Your Auto Rental
+Luxury Cars at low-cost, starts $75 / day
+from over 100 premium locations</p>
+<h2>What Are You Waiting For !</h2>
+
+
+<a href='/cars'><Button className="btbt" variant="primary" size="lg" active>
+    Book Now
+  </Button>{' '} </a>
+
+    </div>    
+    </>
     )
 }
+
+

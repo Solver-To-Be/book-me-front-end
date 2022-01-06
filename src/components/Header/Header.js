@@ -1,18 +1,47 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Header.css'
+import { LoginContext } from '../signUp/Auth';
 
-export default function Header() {
-    return (
-        <div className='header'> 
-        <div className='headerBackground'></div>           
-            <img src="/home/ahmad/book-me-front-end/src/components/Header/book-me-logo.PNG" alt='logo' />
-            <nav>
-                <a href='/'>Home</a>
-                <a href='/'>Cars</a>
-                <a href='/myAcount'>My Acount</a>
-                <a href='/'>Log Out</a>
-            </nav>
-            <br/>
-        </div>
-    )
+
+
+export class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            scrolling: false,
+
+        };
+    }
+    static contextType = LoginContext;
+
+
+    changeBackroung = () => {
+        window.scrollY > 0
+            ? this.setState({
+                scrolling: true,
+            })
+            : this.setState({
+                scrolling: false,
+            });};
+
+        componentDidMount = () => {
+            window.addEventListener("scroll", this.changeBackroung);
+        };
+    
+    render() {
+        return (
+            <div className={this.state.scrolling ? "header_active" : "header"}>
+                <a href='/'> <h1> BookMe</h1></a>
+                <nav>
+                    <a href='/'>Home</a>
+                    <a href='/cars'>Cars</a>
+                    <a href='/myAcount'>My Acount</a>
+                    <a href='/' onClick={this.context.logout}>Log Out</a>                </nav>
+
+            </div>
+        )
+    }
 }
+
+export default Header
+

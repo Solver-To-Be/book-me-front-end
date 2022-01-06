@@ -1,0 +1,57 @@
+
+
+
+.searchPageHero{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../HomePage/Img/pexels-anthony-shkraba-7144207.jpg);
+ 
+    height: 100vh;
+        background-size: cover;
+    background-position: center;
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: center; */
+}
+
+.searchSection{
+
+    position: relative;
+    top: 50%;
+
+}
+
+.ourFleet{
+    text-align: center;
+    color: white;
+    position: relative;
+    bottom: 10px;
+}
+
+
+/* CSS */
+.button-33 {
+  background-color: white;
+  border-radius: 100px;
+  /* box-shadow: rgba(4, 9, 58, 0.671) 0 -25px 18px -14px inset,rgba(4, 9, 58, 0.671) 0 1px 2px,rgba(4, 9, 58, 0.671) 0 2px 4px,rgba(4, 9, 58, 0.671) 0 4px 8px,rgba(4, 9, 58, 0.671) 0 8px 16px,rgba(4, 9, 58, 0.671) 0 16px 32px; */
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 14px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: 20px;
+}
+
+.button-33:hover {
+  /* box-shadow: rgba(24, 21, 206, 0.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px; */
+  transform: scale(1.05) rotate(-1deg);
+}

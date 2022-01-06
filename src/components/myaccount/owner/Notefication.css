@@ -1,0 +1,49 @@
+#Cart {
+    width: 20%;
+    background-color: gray !important;
+    /* float: right;
+    position: fixed;
+    right: 2%; */
+}
+
+.notification {
+    /* background-color: rgb(21, 43, 235); */
+    color: white;
+    text-decoration: none;
+    padding: 12px 16px;
+    position: fixed;
+    top :0%;
+    right: 10px;
+    display: inline-block;
+    border-radius: 2px;
+    z-index: 2;
+  }
+  
+  
+  
+  .notification .badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    /* padding: 5px 10px; */
+    border-radius: 50%;
+    background: red;
+    color: white;
+  }
+
+  .material-icons{      
+      font-size:28px
+  }
+ 
+.titt{
+  font-family: 'Roboto', 'Helvetica Neue', Arial,Verdana,sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.cvc{
+  background-color: rgba(0, 0, 255, 0.185);
+  margin-bottom:10px;
+  height:160px;
+  padding:10px
+}

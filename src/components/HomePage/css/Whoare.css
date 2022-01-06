@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Cherish&family=Lobster&display=swap");
+
+.maine{
+    /* margin-bottom: -30px; */
+    padding-top:30px;
+    height: 250px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(../Img/pexels-miguel-á-padriñán-255379.jpg);
+    background-size: cover;
+background-attachment: fixed;
+background-position:center;
+/* padding: 10 px 50 px; */
+/* height:500px; */
+clip-path: polygon(0 0, 100% 0, 100% 86%, 0 80%);
+margin-bottom: -54px;
+}
+/* 
+.main{
+    font-family: 'Roboto', 'Helvetica Neue', Arial,Verdana,sans-serif;
+
+    padding-top: 50px;
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+
+} */
+
+
+.tet{    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    color: white;
+    font-family: "Lobster", cursive;
+
+    /* font-family: Poppins, Helvetica, Arial, sans-serif;} */}
+
+
+    .meme{
+        /* margin-left:12%;
+        width:200px; */
+        /* padding: 20px 100 px 20px 50px ; */
+        font-weight: 400;
+        font-size: 18px;
+        text-align: center;
+        color: white;
+        /* font-family: 'Roboto', 'Helvetica Neue', Arial,Verdana,sans-serif; */
+    
+        font-family: Poppins, Helvetica, Arial, sans-serif;
+
+    }
+
+ 

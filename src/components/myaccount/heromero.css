@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+.heromero{
+    background-image: url(../HomePage/Img/Login/pexels-shukhrat-umarov-1534604.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    font-family: 'Architects Daughter', cursive;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-evenly;
+    align-items: center;
+    color: white;
+    font-size:90px
+}
+
+.dodo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom:20px; */
+    position: relative;
+    top: -100px;
+
+}
+
+.pepe{
+    width:150px;
+    height:150px;
+    border:1px solid white;
+    border-radius:100px;
+    padding: 3px;
+    margin: 20px;
+    background-color:white;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 1);
+}
+
+.nemo{
+  
+    position: relative;
+    top: 70px;
+}
+
+.nemo h1{
+    text-transform: capitalize;
+    font-size:20px;
+    font-family:cursive;
+    font-weight: 700;
+}
+
+.nemo h2{
+    text-transform: capitalize;
+    font-size:16px;
+    font-family:cursive;
+    font-weight: 600;
+}
+
